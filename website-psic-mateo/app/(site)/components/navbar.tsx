@@ -18,7 +18,7 @@ export default function Navbar() {
     ];
 
     const backgroundImage = {
-        "/": "/homeimage.jpg",
+        "/": "/home.png",
         "/about": "/aboutimage.jpg",
         "/services": "/servicesimage.jpg",
         "/blog": "/blogimage.jpg",
@@ -28,8 +28,8 @@ export default function Navbar() {
     return (
         <header className="relative w-full">
 
-            {/* Imagen de fondo */}
-            <div className="relative w-full min-h-[320px] md:min-h-[450px]">
+            {/* Imagen de fondo del header */}
+            <div className="relative w-full min-h-[350px] md:min-h-[480px]">
                 <Image
                     src={backgroundImage}
                     alt="Fondo Navbar"
@@ -37,6 +37,22 @@ export default function Navbar() {
                     priority
                     className="object-cover"
                 />
+
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-black/40"></div>
+
+                {/* Texto Hero (solo en Home) */}
+                {pathname === "/" && (
+                    <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-6">
+                        <h1 className="text-white text-3xl md:text-5xl font-bold mb-4 drop-shadow-lg opacity-0 fade-in-up">
+                            La salud mental empieza cuando encuentras un espacio seguro
+                        </h1>
+
+                        <p className="text-white/90 text-lg md:text-2xl max-w-2xl drop-shadow-lg opacity-0 fade-in-up-delayed">
+                            Terapia accesible, cercana y pensada para ti.
+                        </p>
+                    </div>
+                )}
             </div>
 
             {/* Navbar */}
@@ -49,18 +65,17 @@ export default function Navbar() {
                             <Link
                                 key={link.href}
                                 href={link.href}
-                                className="text-white text-xl font-bold hover:text-[#ffbc7d] transition-colors duration-300"
+                                className="nav-link text-white text-xl font-bold hover:text-brandPeach transition-colors duration-300"
                             >
                                 {link.label}
                             </Link>
                         ))}
 
-                        {/* Botón WhatsApp */}
                         <a
                             href="https://wa.me/593000000000"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="bg-[#ffbc7d] text-[#171717] px-6 py-2 rounded-full font-semibold shadow-md hover:bg-[#99dfbd] transition-all duration-300"
+                            className="nav-link bg-brandPeach text-[#171717] px-6 py-2 rounded-full font-semibold shadow-md hover:bg-brandMint transition-all duration-300"
                         >
                             Agenda tu sesión
                         </a>
@@ -81,11 +96,7 @@ export default function Navbar() {
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
                                 strokeWidth={2}
-                                d={
-                                    open
-                                        ? "M6 18L18 6M6 6l12 12"
-                                        : "M4 6h16M4 12h16M4 18h16"
-                                }
+                                d={open ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
                             />
                         </svg>
                     </button>
@@ -99,7 +110,7 @@ export default function Navbar() {
                                 key={link.href}
                                 href={link.href}
                                 onClick={() => setOpen(false)}
-                                className="block text-lg font-medium hover:text-[#ffbc7d] transition-colors duration-300"
+                                className="block text-lg font-medium nav-link hover:text-brandPeach transition-colors duration-300"
                             >
                                 {link.label}
                             </Link>
@@ -109,7 +120,7 @@ export default function Navbar() {
                             href="https://wa.me/593000000000"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="block w-full text-center bg-[#ffbc7d] text-[#171717] px-6 py-2 rounded-full font-semibold shadow-md hover:bg-[#99dfbd] transition-all duration-300"
+                            className="block w-full text-center nav-link bg-brandPeach text-[#171717] px-6 py-2 rounded-full font-semibold shadow-md hover:bg-brandMint transition-all duration-300"
                         >
                             Agenda tu sesión
                         </a>
