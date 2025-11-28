@@ -3,7 +3,7 @@
 import { useState } from "react";
 import HeroText, { SlideData } from "./HeroText";
 import { motion } from "framer-motion";
-import HeroCarousel from "@/app/(site)/home/HeroCarrousel";
+import HeroCarousel from "@/app/(site)/home/hero/HeroCarrousel";
 
 export default function Hero() {
     const [currentSlideIndex, setCurrentSlideIndex] = useState<number>(0);
