@@ -3,17 +3,20 @@ import { getAllPosts } from "@/lib/getPosts";
 import { getPostBySlug } from "@/lib/getPostBySlug";
 import React from "react";
 
+interface ArticlePageProps {
+    params: Promise<{
+        slug: string;
+    }>;
+}
+
 export async function generateStaticParams() {
     const posts = getAllPosts();
     return posts.map((post) => ({ slug: post.slug }));
 }
 
-export default async function ArticlePage(props: any) {
-    // Next 16 puede entregar params como Promise, por eso lo resolvemos:
-    const resolvedParams = await props.params;
-    const slug: string | undefined = resolvedParams?.slug;
-
-    console.log("ArticlePage - resolvedParams:", resolvedParams);
+export default async function ArticlePage({ params }: ArticlePageProps) {
+    const resolvedParams = await params;
+    const slug = resolvedParams.slug;
 
     if (!slug) {
         return (
@@ -24,11 +27,10 @@ export default async function ArticlePage(props: any) {
         );
     }
 
-    let post = null;
+    let post;
     try {
         post = await getPostBySlug(slug);
-    } catch (err) {
-        console.error("Error al leer post por slug:", slug, err);
+    } catch {
         post = null;
     }
 
