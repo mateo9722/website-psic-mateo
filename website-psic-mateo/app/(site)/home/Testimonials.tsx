@@ -52,12 +52,12 @@ const Testimonials = () => {
             <Swiper
                 modules={[Autoplay, EffectFade, Pagination, Navigation]}
                 effect="fade"
-                slidesPerView={1.05} // se ve un poco de la siguiente card
+                slidesPerView={1.05}
                 centeredSlides={true}
                 loop={true}
                 grabCursor={true}
                 autoplay={{ delay: 7000, disableOnInteraction: false }}
-                pagination={{ clickable: true, el: ".swiper-pagination", bulletClass: "bg-gray-300 w-3 h-3 rounded-full mx-1", bulletActiveClass: "bg-brandPeach" }}
+                pagination={{ clickable: true }}
                 navigation
                 speed={700}
                 spaceBetween={20}

@@ -20,7 +20,7 @@ export default function Navbar() {
     const backgroundImage = {
         "/": "/home.png",
         "/about": "/aboutimage.jpg",
-        "/services": "/servicesimage.jpg",
+        "/services": "/services.png",
         "/blog": "/blogimage.jpg",
         "/contact": "/contactimage.jpg",
     }[pathname] || "/homeimage.jpg";
@@ -53,6 +53,16 @@ export default function Navbar() {
                         </p>
                     </div>
                 )}
+
+                {/* ⬇️ HERO DE SERVICES — agregado sin borrar nada más */}
+                {pathname === "/services" && (
+                    <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-6">
+                        <h1 className="text-white text-3xl md:text-5xl font-bold mb-4 drop-shadow-lg opacity-0 fade-in-up">
+                            Encuentra el acompañamiento adecuado para tu proceso
+                        </h1>
+                    </div>
+                )}
+                {/* ⬆️ FIN HERO DE SERVICES */}
             </div>
 
             {/* Navbar */}
