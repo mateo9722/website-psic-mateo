@@ -2,8 +2,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Bree_Serif, Montserrat } from "next/font/google";
 import "./globals.css";
-import Navbar from "./(site)/components/navbar";
 import React from "react";
+import Navbar from "@/app/components/Navbar";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 
 const breeSerif = Bree_Serif({
     subsets: ["latin"],
-    weight: ["400", "400"],
+    weight: ["400"],
     variable: "--font-bree-serif",
 });
 
