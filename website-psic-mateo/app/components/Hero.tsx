@@ -19,12 +19,12 @@ const HERO_CONFIG: Record<
         phrase: "Cada historia merece un espacio propio para sanar.",
     },
     "/about": {
-        image: "/aboutimage.jpg",
+        image: "/aboutimage.png",
         title: "Sobre mí y mi forma de acompañarte",
         phrase: "Escuchar también es una forma de cuidar.",
     },
     "/blog": {
-        image: "/blogimage.jpg",
+        image: "/blog.png",
         title: "Reflexiones, procesos y salud mental",
         phrase: "Palabras que acompañan, no que explican.",
     },

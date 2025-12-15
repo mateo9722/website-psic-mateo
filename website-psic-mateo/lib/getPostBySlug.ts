@@ -6,20 +6,27 @@ import html from "remark-html";
 
 const postsDirectory = path.join(process.cwd(), "content/blog");
 
-// El tipo completo de un artículo
 export interface Post {
     slug: string;
     title: string;
     date: string;
-    description: string;
+    excerpt: string;
+    category: string;
     image?: string;
     content: string;
 }
 
-export async function getPostBySlug(slug: string): Promise<Post> {
-    const fullPath = path.join(postsDirectory, `${slug}.md`);
-    const fileContents = fs.readFileSync(fullPath, "utf8");
+export async function getPostBySlug(
+    category: string,
+    slug: string
+): Promise<Post> {
+    const fullPath = path.join(postsDirectory, category, `${slug}.md`);
 
+    if (!fs.existsSync(fullPath)) {
+        throw new Error(`Post not found: ${category}/${slug}`);
+    }
+
+    const fileContents = fs.readFileSync(fullPath, "utf8");
     const { data, content } = matter(fileContents);
 
     const processedContent = await remark().use(html).process(content);
@@ -29,7 +36,8 @@ export async function getPostBySlug(slug: string): Promise<Post> {
         slug,
         title: data.title,
         date: data.date,
-        description: data.description,
+        excerpt: data.excerpt,
+        category,
         image: data.image,
         content: htmlContent,
     };
