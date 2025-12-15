@@ -30,13 +30,6 @@ export default function ServicesPage() {
             </section>
             <SocioeconomicAnalysis />
 
-            <section className="w-full max-w-6xl">
-                <ModeSelector mode={mode} setMode={setMode} />
-                <div className="mt-6">
-                    <ServiceContent mode={mode} />
-                </div>
-            </section>
-
             {/* 3. Introducción a las modalidades */}
             <section className="w-full max-w-4xl text-center mt-10">
                 <h2 className="text-3xl md:text-4xl font-bold mb-3">
