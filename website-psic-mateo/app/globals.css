@@ -145,7 +145,15 @@ body {
 .hero-content {
     animation: hero-fade-up 0.9s ease-out forwards;
 }
+/* globals.css */
 
+.prose {
+    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+.prose p {
+    line-height: 1.75;
+}
 /* Frase inferior */
 .hero-phrase {
     opacity: 0;

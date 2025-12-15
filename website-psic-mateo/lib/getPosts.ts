@@ -8,30 +8,43 @@ export interface PostMeta {
     slug: string;
     title: string;
     date: string;
-    description: string;
+    excerpt: string;
+    category: string;
     image?: string;
 }
 
 export function getAllPosts(): PostMeta[] {
-    const fileNames = fs.readdirSync(postsDirectory);
+    const categories = fs.readdirSync(postsDirectory);
 
-    const posts = fileNames.map((fileName) => {
-        const slug = fileName.replace(".md", "");
-        const fullPath = path.join(postsDirectory, fileName);
-        const fileContents = fs.readFileSync(fullPath, "utf8");
+    const posts: PostMeta[] = [];
 
-        const { data } = matter(fileContents);
+    categories.forEach((category) => {
+        const categoryPath = path.join(postsDirectory, category);
 
-        return {
-            slug,
-            title: data.title,
-            date: data.date,
-            description: data.description,
-            image: data.image,
-        };
+        if (!fs.statSync(categoryPath).isDirectory()) return;
+
+        const files = fs.readdirSync(categoryPath);
+
+        files.forEach((file) => {
+            if (!file.endsWith(".md")) return;
+
+            const fullPath = path.join(categoryPath, file);
+            const fileContents = fs.readFileSync(fullPath, "utf8");
+            const { data } = matter(fileContents);
+
+            if (data.published === false) return;
+
+            posts.push({
+                slug: file.replace(".md", ""),
+                title: data.title,
+                date: data.date,
+                excerpt: data.excerpt,
+                category,
+                image: data.image,
+            });
+        });
     });
 
-    // ordenar por fecha
     return posts.sort(
         (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
     );
