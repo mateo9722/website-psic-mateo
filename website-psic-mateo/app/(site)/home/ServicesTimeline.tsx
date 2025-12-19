@@ -133,7 +133,7 @@ const ServicesTimeline = () => {
                 whileTap={{ scale: 0.95 }}
             >
                 <Link
-                    href="https://wa.me/593987184079?text=Hola%2C%20quisiera%20agendar%20una%20sesión"
+                    href="https://wa.me/593987865487?text=Hola%20Mateo,%20quisiera%20información%20sobre%20iniciar%20un%20proceso%20terapéutico."
                     target="_blank"
                 >
                     <motion.button

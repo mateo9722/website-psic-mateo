@@ -97,7 +97,7 @@ const HeroText: React.FC<HeroTextProps> = ({ currentSlideIndex, slides }) => {
                     rel="noopener noreferrer"
                     onClick={(e) => {
                         e.preventDefault(); // evita la navegación normal
-                        window.open("https://wa.me/NUMERO", "_blank");
+                        window.open("https://wa.me/593987865487?text=Hola%20Mateo,%20quisiera%20información%20sobre%20iniciar%20un%20proceso%20terapéutico.");
                     }}
                     className="px-6 py-3 bg-brandMint text-gray-900 rounded-lg shadow-md hover:bg-brandPeach hover:scale-105 transition-all duration-300 font-semibold inline-block"
                 >

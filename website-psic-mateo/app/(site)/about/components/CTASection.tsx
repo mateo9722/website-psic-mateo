@@ -30,7 +30,7 @@ export default function CTASection() {
                 </motion.p>
 
                 <motion.a
-                    href="https://wa.me/593" // pon aquí tu número
+                    href="https://wa.me/593987865487?text=Hola%20Mateo,%20quisiera%20información%20sobre%20iniciar%20un%20proceso%20terapéutico." // pon aquí tu número
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block px-10 py-4 rounded-full font-semibold text-white shadow-lg hover:shadow-xl transition text-lg"

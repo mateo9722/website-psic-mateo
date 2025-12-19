@@ -26,7 +26,7 @@ const CTA = () => {
             </motion.p>
 
             <motion.a
-                href="https://wa.me/593000000000"
+                href="https://wa.me/593987865487?text=Hola%20Mateo,%20quisiera%20información%20sobre%20iniciar%20un%20proceso%20terapéutico."
                 target="_blank"
                 initial={{ scale: 1 }}
                 whileHover={{ scale: 1.05 }}
