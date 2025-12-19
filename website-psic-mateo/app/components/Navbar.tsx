@@ -35,9 +35,14 @@ export default function Navbar() {
                             priority
                         />
 
-                        <span className="font-medium text-2xl tracking-tight text-gray-900">
-              Mateo Morejón
-            </span>
+                        <div className="flex flex-col leading-tight">
+              <span className="font-medium text-2xl tracking-tight text-gray-900">
+                Mateo Morejón
+              </span>
+                            <span className="text-sm text-gray-500">
+                Psicólogo clínico
+              </span>
+                        </div>
                     </Link>
 
                     {/* Botón mobile */}

@@ -1,11 +1,10 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, EffectFade, Pagination, Navigation } from "swiper/modules";
+import { Autoplay, EffectFade, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
-import "swiper/css/navigation";
 import { motion } from "framer-motion";
 
 interface Testimonial {
@@ -15,94 +14,75 @@ interface Testimonial {
 
 const testimonials: Testimonial[] = [
     {
-        name: "EM",
-        text: "Desde que empecé terapia entendí cosas que antes no podía ver. Hablarlas en voz alta me ayudó a ser más consciente, ver opciones y tomar decisiones desde un lugar más claro y compasivo conmigo mismo. Ha sido de mucha ayuda para seguir adelante."
+        name: "E.M",
+        text: "Desde que empecé terapia entendí cosas que antes no podía ver. Hablarlas en voz alta me ayudó a ser más consciente, ver opciones y tomar decisiones desde un lugar más claro y compasivo conmigo mismo.",
     },
     {
-        name: "Brenda",
-        text: "Llegué a terapia como último recurso para seguir viviendo. El consumo de alcohol me había llevado a un límite peligroso. Hablar sin reservas abrió una parte de mí que necesitaba ser escuchada. Hoy sigo aquí, presente, gracias a este proceso y al acompañamiento del Dr. Mateo."
+        name: "Y.C",
+        text: "Llevo más de dos años en terapia y ha sido un proceso profundamente transformador. Cada sesión se siente como soltar peso y volver a respirar. En este espacio encontré seguridad y la libertad para mirarme sin filtros.",
+    },
+    {
+        name: "B.",
+        text: "Llegué a terapia en un momento límite. El consumo de alcohol me había llevado a un lugar muy peligroso. Poder hablar sin reservas abrió una parte de mí que necesitaba ser escuchada. Hoy sigo aquí, presente, gracias a este proceso.",
     },
     {
         name: "K.R",
-        text: "Perder a mi hijo destruyó toda mi vida. En este espacio encontré contención, respeto y la libertad para expresar un dolor que nadie antes había sabido sostener. La terapia me ha permitido encontrar fuerzas para seguir viviendo, incluso en este nuevo mundo sin él."
-    }
+        text: "Perder a mi hijo destruyó toda mi vida. En este espacio encontré contención, respeto y la libertad para expresar un dolor que nadie antes había sabido sostener. La terapia me ha permitido encontrar fuerzas para seguir viviendo, incluso en este nuevo mundo sin él.",
+    },
 ];
-
-const textVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-};
 
 const Testimonials = () => {
     return (
-        <section className="py-32 bg-[#fff6f3]">
+        <section className="py-24 bg-[#fff6f3]">
             {/* Título */}
             <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className="text-4xl md:text-5xl font-bree-serif font-bold text-center mb-20"
+                className="text-4xl md:text-5xl font-bree-serif font-bold text-center mb-8"
                 style={{ color: "#ffbc7d" }}
             >
                 Qué opinan mis pacientes
             </motion.h2>
 
-            {/* Slider */}
+            {/* Marco de experiencia */}
+            <p className="max-w-xl mx-auto text-center text-gray-600 text-base mb-20 leading-relaxed">
+                A lo largo de mi práctica he acompañado procesos muy distintos, cada uno
+                con su propio tiempo y su propio dolor. Estas voces forman parte de ese recorrido.
+            </p>
+
+            {/* Testimonio */}
             <Swiper
-                modules={[Autoplay, EffectFade, Pagination, Navigation]}
+                modules={[Autoplay, EffectFade, Pagination]}
                 effect="fade"
-                slidesPerView={1.05}
-                centeredSlides={true}
-                loop={true}
-                grabCursor={true}
-                autoplay={{ delay: 7000, disableOnInteraction: false }}
+                slidesPerView={1}
+                loop
+                autoplay={{ delay: 11000, disableOnInteraction: false }}
                 pagination={{ clickable: true }}
-                navigation
-                speed={700}
-                spaceBetween={20}
-                className="max-w-4xl mx-auto"
+                speed={800}
+                className="max-w-2xl mx-auto"
             >
                 {testimonials.map((t, i) => (
-                    <SwiperSlide key={i} className="flex justify-center items-center">
+                    <SwiperSlide key={i}>
                         <motion.div
-                            initial="hidden"
-                            whileInView="visible"
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
-                            className="max-w-3xl mx-auto bg-white rounded-3xl shadow-xl p-12 md:p-16 text-center flex flex-col justify-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
+                            transition={{ duration: 0.6 }}
+                            className="bg-white/95 backdrop-blur-sm rounded-3xl px-10 py-14 text-center shadow-md"
                         >
-                            <motion.p
-                                variants={textVariants}
-                                className="text-gray-700 text-lg md:text-xl leading-relaxed mb-6 font-sans"
-                            >
-                                {t.text}
-                            </motion.p>
-                            <motion.span
-                                variants={textVariants}
-                                className="block font-semibold text-brandMint text-xl md:text-2xl"
-                            >
-                                {t.name}
-                            </motion.span>
+                            <p className="text-gray-800 text-lg md:text-xl leading-relaxed italic font-light mb-10">
+                                “{t.text}”
+                            </p>
+
+                            <span className="block text-sm tracking-widest text-brandMint">
+                {t.name}
+              </span>
                         </motion.div>
                     </SwiperSlide>
                 ))}
             </Swiper>
-
-            {/* CTA */}
-            <div className="text-center mt-12">
-                <motion.a
-                    href="https://wa.me/593987865487?text=Hola%20Mateo,%20quisiera%20información%20sobre%20iniciar%20un%20proceso%20terapéutico."
-                    target="_blank"
-                    initial={{ scale: 1 }}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="inline-block px-8 py-4 rounded-full font-semibold text-black shadow-md"
-                    style={{ backgroundColor: "#99dfbd", transition: "0.3s" }}
-                >
-                    Dar el primer paso
-                </motion.a>
-            </div>
         </section>
     );
 };
