@@ -72,7 +72,7 @@ export default function Navbar() {
 
                         {/* CTA */}
                         <a
-                            href="https://wa.me/593000000000"
+                            href="https://wa.me/593987865487?text=Hola%20Mateo,%20quisiera%20información%20sobre%20iniciar%20un%20proceso%20terapéutico."
                             target="_blank"
                             className="
                                 ml-4 px-4 py-2 rounded-full text-sm font-semibold

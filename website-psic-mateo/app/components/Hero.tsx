@@ -29,7 +29,7 @@ const HERO_CONFIG: Record<
         phrase: "Palabras que acompañan, no que explican.",
     },
     "/contact": {
-        image: "/contactimage.jpg",
+        image: "/contact.png",
         title: "Comienza tu proceso con calma",
         phrase: "A veces, el primer paso es simplemente escribir.",
     },
