@@ -1,4 +1,3 @@
-// app/layout.tsx
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Bree_Serif, Montserrat } from "next/font/google";
 import "./globals.css";
@@ -6,6 +5,7 @@ import React from "react";
 
 import Navbar from "@/app/components/Navbar";
 import HeroWrapper from "@/app/components/HeroWrapper";
+import Footer from "@/app/(site)/components/footer";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -44,18 +44,19 @@ export default function RootLayout({
         <body
             className={`${geistSans.variable} ${geistMono.variable} ${breeSerif.variable} ${montserrat.variable} antialiased bg-gray-50 text-gray-900`}
         >
+        {/* Navbar global */}
         <Navbar />
+
+        {/* Hero dinámico según ruta */}
         <HeroWrapper />
 
+        {/* Contenido principal */}
         <main className="max-w-6xl mx-auto px-4 py-16">
             {children}
         </main>
 
-        <footer className="bg-white border-t border-gray-200 mt-16 py-8">
-            <div className="max-w-6xl mx-auto text-center text-gray-700 text-sm">
-                © {new Date().getFullYear()} Mateo Morejón — Psicología y bienestar
-            </div>
-        </footer>
+        {/* Footer global */}
+        <Footer />
         </body>
         </html>
     );
