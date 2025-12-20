@@ -1,6 +1,11 @@
-import {Benefits, Hero,  ServicesTimeline, Testimonials} from "@/app/(site)/home/index";
+import {
+    Benefits,
+    Hero,
+    ServicesTimeline,
+    Testimonials,
+} from "@/app/(site)/home/index";
 import Intro from "@/app/(site)/home/Intro";
-import CTA from "@/app/(site)/home/CTA";
+import CTAClient from "@/app/(site)/home/CTAClient";
 
 export default function Home() {
     return (
@@ -10,7 +15,7 @@ export default function Home() {
             <ServicesTimeline />
             <Benefits />
             <Testimonials />
-            <CTA />
+            <CTAClient />
         </main>
     );
 }

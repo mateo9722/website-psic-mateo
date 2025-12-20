@@ -25,16 +25,24 @@ const CTA = () => {
                 Estoy aquí para acompañarte con calma, respeto y profundidad.
             </motion.p>
 
-            <motion.a
-                href="https://wa.me/593987865487?text=Hola%20Mateo,%20quisiera%20información%20sobre%20iniciar%20un%20proceso%20terapéutico."
-                target="_blank"
+            {/* ✅ Wrapper animado */}
+            <motion.div
                 initial={{ scale: 1 }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-block px-8 py-4 bg-brandPeach text-white rounded-full font-semibold text-lg shadow-md transition-all duration-300"
+                transition={{ type: "spring", stiffness: 300 }}
+                className="inline-block"
             >
-                Agendar vía WhatsApp
-            </motion.a>
+                {/* ✅ Link HTML estable */}
+                <a
+                    href="https://wa.me/593987865487?text=Hola%20Mateo,%20quisiera%20información%20sobre%20iniciar%20un%20proceso%20terapéutico."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block px-8 py-4 bg-brandPeach text-white rounded-full font-semibold text-lg shadow-md transition-all duration-300"
+                >
+                    Agendar vía WhatsApp
+                </a>
+            </motion.div>
         </section>
     );
 };
