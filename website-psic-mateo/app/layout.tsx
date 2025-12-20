@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Bree_Serif, Montserrat } from "next/font/google";
 import "./globals.css";
 import React from "react";
 
+import DisableScrollRestoration from "@/app/components/DisableScrollRestoration";
 import Navbar from "@/app/components/Navbar";
 import HeroWrapper from "@/app/components/HeroWrapper";
 import Footer from "@/app/(site)/components/footer";
@@ -44,6 +45,9 @@ export default function RootLayout({
         <body
             className={`${geistSans.variable} ${geistMono.variable} ${breeSerif.variable} ${montserrat.variable} antialiased bg-gray-50 text-gray-900`}
         >
+        {/* 🔑 CLAVE: desactivar restauración automática de scroll */}
+        <DisableScrollRestoration />
+
         {/* Navbar global */}
         <Navbar />
 

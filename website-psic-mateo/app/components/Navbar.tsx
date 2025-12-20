@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -17,15 +16,20 @@ export default function Navbar() {
     const pathname = usePathname();
     const [open, setOpen] = useState(false);
 
+    const navigate = (href: string) => {
+        setOpen(false);
+        window.location.href = href;
+    };
+
     return (
         <header className="sticky top-0 z-50">
             <nav className="backdrop-blur-md bg-white/90 border-b border-black/5">
                 <div className="max-w-6xl mx-auto px-6 h-28 flex items-center justify-between">
 
-                    {/* Logo + Nombre */}
-                    <Link
-                        href="/"
-                        className="flex items-center gap-6 hover:opacity-80 transition"
+                    {/* Logo */}
+                    <button
+                        onClick={() => navigate("/")}
+                        className="flex items-center gap-6 hover:opacity-80 transition text-left"
                     >
                         <Image
                             src="/logofinal.png"
@@ -34,7 +38,6 @@ export default function Navbar() {
                             height={96}
                             priority
                         />
-
                         <div className="flex flex-col leading-tight">
               <span className="font-medium text-2xl tracking-tight text-gray-900">
                 Mateo Morejón
@@ -43,7 +46,7 @@ export default function Navbar() {
                 Psicólogo clínico
               </span>
                         </div>
-                    </Link>
+                    </button>
 
                     {/* Botón mobile */}
                     <button
@@ -51,20 +54,7 @@ export default function Navbar() {
                         className="md:hidden inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:text-gray-900 hover:bg-black/5 transition"
                         aria-label="Abrir menú"
                     >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth={1.5}
-                            stroke="currentColor"
-                            className="w-7 h-7"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5"
-                            />
-                        </svg>
+                        ☰
                     </button>
 
                     {/* Links desktop */}
@@ -73,9 +63,9 @@ export default function Navbar() {
                             const active = pathname === link.href;
 
                             return (
-                                <Link
+                                <button
                                     key={link.href}
-                                    href={link.href}
+                                    onClick={() => navigate(link.href)}
                                     className={`
                     relative text-base font-medium transition
                     ${
@@ -90,19 +80,14 @@ export default function Navbar() {
                                     {active && (
                                         <span className="absolute -bottom-3 left-0 w-full h-[2px] bg-brandPeach rounded-full" />
                                     )}
-                                </Link>
+                                </button>
                             );
                         })}
 
-                        {/* CTA */}
                         <a
-                            href="https://wa.me/593987865487?text=Hola%20Mateo,%20quisiera%20información%20sobre%20iniciar%20un%20proceso%20terapéutico."
+                            href="https://wa.me/593987865487"
                             target="_blank"
-                            className="
-                ml-4 px-7 py-3 rounded-full text-base font-semibold
-                bg-brandPeach text-[#171717]
-                hover:bg-brandMint transition
-              "
+                            className="ml-4 px-7 py-3 rounded-full text-base font-semibold bg-brandPeach text-[#171717]"
                         >
                             Agenda tu sesión
                         </a>
@@ -111,35 +96,23 @@ export default function Navbar() {
 
                 {/* Menú mobile */}
                 {open && (
-                    <div className="md:hidden border-t border-black/5 bg-white/95 backdrop-blur-md">
+                    <div className="md:hidden border-t border-black/5 bg-white/95">
                         <div className="px-6 py-6 flex flex-col gap-5">
                             {links.map((link) => {
                                 const active = pathname === link.href;
 
                                 return (
-                                    <Link
+                                    <button
                                         key={link.href}
-                                        href={link.href}
-                                        onClick={() => setOpen(false)}
-                                        className={`text-lg font-medium ${
+                                        onClick={() => navigate(link.href)}
+                                        className={`text-lg font-medium text-left ${
                                             active ? "text-brandPeach" : "text-gray-800"
                                         }`}
                                     >
                                         {link.label}
-                                    </Link>
+                                    </button>
                                 );
                             })}
-
-                            <a
-                                href="https://wa.me/593987865487"
-                                target="_blank"
-                                className="
-                  mt-2 inline-flex justify-center px-6 py-3 rounded-full text-base font-semibold
-                  bg-brandPeach text-[#171717]
-                "
-                            >
-                                Agenda tu sesión
-                            </a>
                         </div>
                     </div>
                 )}
