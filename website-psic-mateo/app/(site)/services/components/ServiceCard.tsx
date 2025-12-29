@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 interface ServiceCardProps {
     title: string;
     short: string;
-    price: string | undefined;
+    price?: string | undefined;
     whatsappHref?: string;
 }
 

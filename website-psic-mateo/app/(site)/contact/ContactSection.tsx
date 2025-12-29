@@ -1,3 +1,5 @@
+"use client";
+
 import { MessageCircle, Mail, AtSign, MapPin, Video } from "lucide-react";
 
 export default function ContactSection() {
@@ -62,6 +64,37 @@ export default function ContactSection() {
                         >
                             <Mail size={20} />
                             Enviar un correo
+                        </a>
+                    </div>
+
+
+                    {/* Inicio de proceso — formulario */}
+                    <div className="rounded-2xl bg-brandMint-light p-6 space-y-4 animate-fade-up">
+                        <p className="text-sm text-foreground max-w-2xl">
+                            Si prefieres iniciar el proceso de forma más pausada,
+                            puedes hacerlo completando un breve análisis socioeconómico.
+                        </p>
+
+                        <a
+                            href="#"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                window.open(
+                                    "https://docs.google.com/forms/d/e/1FAIpQLSfBS8Ta9Tw5g6YuaqFJseIOY84FJhq4bTR_ZM5RsQMZ_BE2iA/viewform?usp=dialog",
+                                    "_blank",
+                                    "noopener,noreferrer"
+                                );
+                            }}
+                            className="
+                                inline-flex items-center justify-center
+                                rounded-full
+                                bg-brandMint
+                                px-8 py-4
+                                text-base font-medium text-foreground
+                                transition hover:scale-[1.04] hover:shadow-lg
+                            "
+                        >
+                            Iniciar proceso terapéutico
                         </a>
                     </div>
 
