@@ -29,7 +29,7 @@ export default function Navbar() {
                     {/* Logo */}
                     <button
                         onClick={() => navigate("/")}
-                        className="flex items-center gap-6 hover:opacity-80 transition text-left"
+                        className="cursor-pointer flex items-center gap-6 hover:opacity-80 transition text-left"
                     >
                         <Image
                             src="/logofinal.png"
@@ -39,19 +39,19 @@ export default function Navbar() {
                             priority
                         />
                         <div className="flex flex-col leading-tight">
-              <span className="font-medium text-2xl tracking-tight text-gray-900">
-                Mateo Morejón
-              </span>
+                            <span className="font-medium text-2xl tracking-tight text-gray-900">
+                                Mateo Morejón
+                            </span>
                             <span className="text-sm text-gray-500">
-                Psicólogo clínico
-              </span>
+                                Psicólogo clínico
+                            </span>
                         </div>
                     </button>
 
                     {/* Botón mobile */}
                     <button
                         onClick={() => setOpen(!open)}
-                        className="md:hidden inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:text-gray-900 hover:bg-black/5 transition"
+                        className="cursor-pointer md:hidden inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:text-gray-900 hover:bg-black/5 transition"
                         aria-label="Abrir menú"
                     >
                         ☰
@@ -67,13 +67,14 @@ export default function Navbar() {
                                     key={link.href}
                                     onClick={() => navigate(link.href)}
                                     className={`
-                    relative text-base font-medium transition
-                    ${
+                                        cursor-pointer
+                                        relative text-base font-medium transition
+                                        ${
                                         active
                                             ? "text-brandPeach"
                                             : "text-gray-700 hover:text-gray-900"
                                     }
-                  `}
+                                    `}
                                 >
                                     {link.label}
 
@@ -85,9 +86,16 @@ export default function Navbar() {
                         })}
 
                         <a
-                            href="https://wa.me/593987865487"
-                            target="_blank"
-                            className="ml-4 px-7 py-3 rounded-full text-base font-semibold bg-brandPeach text-[#171717]"
+                            href="#"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                window.open(
+                                    "https://wa.me/593987865487?text=Hola%20Mateo,%20quisiera%20información%20sobre%20iniciar%20un%20proceso%20terapéutico.",
+                                    "_blank",
+                                    "noopener,noreferrer"
+                                );
+                            }}
+                            className="cursor-pointer ml-4 px-7 py-3 rounded-full text-base font-semibold bg-brandPeach text-[#171717]"
                         >
                             Agenda tu sesión
                         </a>
@@ -105,9 +113,11 @@ export default function Navbar() {
                                     <button
                                         key={link.href}
                                         onClick={() => navigate(link.href)}
-                                        className={`text-lg font-medium text-left ${
-                                            active ? "text-brandPeach" : "text-gray-800"
-                                        }`}
+                                        className={`
+                                            cursor-pointer
+                                            text-lg font-medium text-left
+                                            ${active ? "text-brandPeach" : "text-gray-800"}
+                                        `}
                                     >
                                         {link.label}
                                     </button>

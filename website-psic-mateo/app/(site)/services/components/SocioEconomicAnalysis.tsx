@@ -47,10 +47,17 @@ export default function SocioeconomicAnalysis() {
                 <motion.a
                     whileHover={{ scale: 1.04 }}
                     whileTap={{ scale: 0.97 }}
-                    href="https://docs.google.com/forms" // ← Cambia cuando tengas tu enlace real
-                    target="_blank"
+                    onClick={(e) => {
+                        e.preventDefault();
+                        window.open(
+                            "https://docs.google.com/forms/d/e/1FAIpQLSfBS8Ta9Tw5g6YuaqFJseIOY84FJhq4bTR_ZM5RsQMZ_BE2iA/viewform?usp=dialog",
+                            "_blank",
+                            "noopener,noreferrer"
+                        );
+                    }}
+                    href="#"
                     className="inline-block px-8 py-4 rounded-full font-semibold text-black shadow-md
-                    bg-[#99DFBD] hover:bg-[#89d4b0] transition-colors duration-300"
+    bg-[#99DFBD] hover:bg-[#89d4b0] transition-colors duration-300"
                 >
                     Completar análisis socioeconómico
                 </motion.a>
