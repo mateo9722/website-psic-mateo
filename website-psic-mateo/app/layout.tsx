@@ -31,8 +31,9 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-    title: "Mateo Morejón - Psicólogo Clínico",
-    description: "Acompañamiento psicológico humano y profesional.",
+    title: "Mateo Morejón | Psicólogo clínico en Quito",
+    description:
+        "Psicólogo clínico en Quito. Terapia psicológica para adolescentes y adultos. Atención presencial y online.",
 };
 
 export default function RootLayout({
