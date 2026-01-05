@@ -3,6 +3,8 @@ import { Geist, Geist_Mono, Bree_Serif, Montserrat } from "next/font/google";
 import "./globals.css";
 import React from "react";
 
+import { Analytics } from "@vercel/analytics/react";
+
 import DisableScrollRestoration from "@/app/components/DisableScrollRestoration";
 import Navbar from "@/app/components/Navbar";
 import HeroWrapper from "@/app/components/HeroWrapper";
@@ -62,6 +64,9 @@ export default function RootLayout({
 
         {/* Footer global */}
         <Footer />
+
+        {/* Vercel Analytics */}
+        <Analytics />
         </body>
         </html>
     );
